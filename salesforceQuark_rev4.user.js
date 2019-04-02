@@ -19,7 +19,7 @@ function AddButton()
     console.log("AddButton");
     var zNode       = document.createElement ('div')
     zNode.innerHTML = '<button id="askQuarkButton" class="slds-button slds-button_destructive askButton" style="background-color: #f2711c; margin-left:10px;" role="button">'
-        + '<span style="color: white;">Ask Quark!</span></button>'
+        + '<span style="color: white;">ASK QUARK</span></button>'
     ;
     //zNode.setAttribute ('id', 'myContainer');
     var tabBarList = document.getElementsByClassName('uiTabBar'); // need to use waitForElement
