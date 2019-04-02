@@ -44,7 +44,7 @@ function AddButton()
     var desc = FindDescription();
     var zNode       = document.createElement ('div');
     var pNode       = document.createElement('p');
-    pNode.innerHTML = '<a target="_ask" href="http://localhost:9000/support?casesubject=' + subject + '&casedescription=' + desc + '"><b>ASK Quark</b></a>';
+    pNode.innerHTML = '<a target="_ask" href="http://ntnxp4.quark.ai/support?casesubject=' + subject + '&casedescription=' + desc + '"><b>ASK Quark</b></a>';
     pNode.setAttribute ('class', 'button');
     zNode.appendChild(pNode);
 
@@ -58,7 +58,7 @@ function ButtonClickAction (zEvent) {
     var desc = FindDescription();
     console.log('subject = ' + subject);
     console.log('desc = ' + desc);
-    window.open("http://localhost:9000/support?casesubject=" + subject + "&casedescription=" + desc, "_ask");
+    window.open("http://ntnxp4.quark.ai/support?casesubject=" + subject + "&casedescription=" + desc, "_ask");
 }
 
 //--- Style our newly added elements using CSS.
