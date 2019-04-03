@@ -4,7 +4,7 @@
 // @version      0.1
 // @description  try to take over the world!
 // @author       You
-// @match        https://quarkai-dev-ed.lightning.force.com/lightning/r/Case/*
+// @match        https://quarkai-dev-ed.lightning.force.com/*
 // @require     http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js
 // @require     https://gist.github.com/raw/2625891/waitForKeyElements.js
 // @grant        GM_addStyle
@@ -16,19 +16,23 @@ waitForKeyElements('div.main-col', AddButton);
 
 function AddButton()
 {
-    console.log("AddButton");
-    var zNode       = document.createElement ('div')
-    zNode.innerHTML = '<button id="askQuarkButton" class="slds-button slds-button_destructive askButton" style="background-color: #f2711c; margin-left:10px;" role="button">'
-        + '<span style="color: white;">ASK QUARK</span></button>'
-    ;
-    //zNode.setAttribute ('id', 'myContainer');
-    var tabBarList = document.getElementsByClassName('uiTabBar'); // need to use waitForElement
-    tabBarList[0].firstChild.appendChild(zNode);
+    console.log(window.location.href)
+    if(window.location.href.startsWith('https://quarkai-dev-ed.lightning.force.com/lightning/r/Case/'))
+    {
+        console.log("AddButton");
+        var zNode       = document.createElement ('div')
+        zNode.innerHTML = '<button id="askQuarkButton" class="slds-button slds-button_destructive askButton" style="background-color: #f2711c; margin-left:10px;" role="button">'
+            + '<span style="color: white;">ASK QUARK</span></button>'
+        ;
+        //zNode.setAttribute ('id', 'myContainer');
+        var tabBarList = document.getElementsByClassName('uiTabBar'); // need to use waitForElement
+        tabBarList[0].firstChild.appendChild(zNode);
 
-    //--- Activate the newly added button.
-    document.getElementById ("askQuarkButton").addEventListener (
-        "click", ButtonClickAction, false
-    );
+        //--- Activate the newly added button.
+        document.getElementById ("askQuarkButton").addEventListener (
+            "click", ButtonClickAction, false
+        );
+    }
 }
 
 /*
