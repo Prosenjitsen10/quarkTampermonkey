@@ -12,7 +12,7 @@
 
 // The waitForKeyElements should ideally be looking for the target (i.e. subject)
 // In this case, it is looking for a div with a class 'main-col'
-waitForKeyElements('div.main-col', AddButton);
+waitForKeyElements('li.active:nth-child(3) > a:nth-child(1) > span:nth-child(2)', AddButton);
 
 function AddButton()
 {
@@ -58,11 +58,16 @@ function AddButton()
 */
 
 function ButtonClickAction (zEvent) {
+    var maxLength = 4096;
     var subject = FindSubject();
     var desc = FindDescription();
-    console.log('subject = ' + subject);
-    console.log('desc = ' + desc);
-    window.open("http://ntnxp4.quark.ai/support?casesubject=" + subject + "&casedescription=" + desc, "_ask");
+    //.log('subject = ' + subject);
+    //console.log('desc = ' + desc);
+    var urlString = "https://ntnxp.quark.ai/support";
+    var parameters = "?casesubject=" + subject + "&casedescription=" + desc;
+    var encodedURL = encodeURI(urlString + parameters);
+    var truncatedURL = encodedURL.substring(0, maxLength);
+    window.open(truncatedURL, "_ask");
 }
 
 //--- Style our newly added elements using CSS.
