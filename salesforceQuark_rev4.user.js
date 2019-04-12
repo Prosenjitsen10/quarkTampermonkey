@@ -58,16 +58,19 @@ function AddButton()
 */
 
 function ButtonClickAction (zEvent) {
-    var maxLength = 4096;
+    var maxLength = 2048;
     var subject = FindSubject();
     var desc = FindDescription();
     //.log('subject = ' + subject);
     //console.log('desc = ' + desc);
-    var urlString = "https://ntnxp.quark.ai/support";
+    if(desc.length > maxLength)
+    {
+        desc = desc.substring(0, maxLength);
+    }
+    var urlString = "https://ntnxp4.quark.ai/support";
     var parameters = "?casesubject=" + subject + "&casedescription=" + desc;
     var encodedURL = encodeURI(urlString + parameters);
-    var truncatedURL = encodedURL.substring(0, maxLength);
-    window.open(truncatedURL, "_ask");
+    window.open(encodedURL, "_ask");
 }
 
 //--- Style our newly added elements using CSS.
