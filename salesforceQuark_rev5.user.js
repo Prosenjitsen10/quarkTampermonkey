@@ -94,7 +94,7 @@ function ButtonClickAction (zEvent) {
     {
         desc = desc.substring(0, maxLength);
     }
-    var urlString = "https://ntnxp.quark.ai/support"; //"https://ntnxp4.quark.ai/support";
+    var urlString = "https://ntnxp4.quark.ai/support";
     var parameters = "?casesubject=" + subject + "&casedescription=" + desc;
     var encodedURL = encodeURI(urlString + parameters);
     console.log("encodedURL = " + encodedURL);
